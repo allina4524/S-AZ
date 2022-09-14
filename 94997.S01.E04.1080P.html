@@ -33,12 +33,57 @@
         #files a {
             padding: 0.5rem;
         }
+               .preload {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: #3e1046;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+}
+
+.airplane {
+    height: 50px;
+    animation: airplane 1s ease infinite alternate ;
+}
+.preload h3{
+    position: absolute;
+    top: 75%;
+    transform: translateY(-75%);
+    color: wheat;
+    font-size: 30px;
+    font-family: sans-serif;
+}
+.preload-finish {
+opacity: 0;
+pointer-events: none;
+
+}
+section img{
+   height: 200px; 
+}
+
+
+@keyframes airplane{
+    from{
+transform: translateY(0px);
+    }
+    to{
+transform: translateY(10px);
+    }
+}
     </style>
     <!-- <script src="../../dist/index.min.js" charset="utf-8" async></script> -->
     <script src="https://cdn.jsdelivr.net/npm/@webtor/embed-sdk-js/dist/index.min.js" charset="utf-8" async></script>
 </head>
 
 <body>
+     <div class="preload">
+        <img class="airplane" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihHIlDzE-t4s7abpBQsF1N_zaKqch-GHgsgpW89C4DwshvWk_fcMeYaWpQZOSTa9-ylLlnA68W5Gr19ZKgNRBDB_uEwNsnOCQsSJzovom3aR21skfoJ8tCd9mQEzCxITs0QbjPcHdB-ubO23qNMNC5dAhfIaw7g6XeE6Km5UNEHI2Sh4djVV9sacPF/s733/house%20of%20the%20dragon-01.png" alt="airplane">
+           </div> 
     <div id="player"></div>
     <div id="files"></div> 
     <script>
@@ -154,6 +199,12 @@
                 }
             },
         });
+    </script>
+    <script>
+window.addEventListener('load', () =>{
+    const preload = document.querySelector ('.preload');
+    preload.classList.add('preload-finish');
+    });
     </script>
 </body>
 
