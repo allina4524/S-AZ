@@ -1,0 +1,230 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>مكتبة الافلام</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        #player {
+            height: 100%;
+        }
+        #controls {
+            padding: 1rem;
+        }
+        #controls i {
+            padding-top: 0.3rem;
+            display: block;
+        }
+        .control {
+            padding-right: 1rem;
+        }
+        #files {
+            padding: 0.5rem;
+        }
+        #files a {
+            padding: 0.5rem;
+        }
+         .preload {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: #3e1046;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+}
+
+.airplane {
+    height: 50px;
+    animation: airplane 1s ease infinite alternate ;
+}
+.preload h3{
+    position: absolute;
+    top: 75%;
+    transform: translateY(-75%);
+    color: wheat;
+    font-size: 30px;
+    font-family: sans-serif;
+}
+.preload-finish {
+opacity: 0;
+pointer-events: none;
+
+}
+section img{
+   height: 30px; 
+}
+
+
+@keyframes airplane{
+    from{
+transform: translateY(0px);
+    }
+    to{
+transform: translateY(10px);
+    }
+}
+
+
+
+    </style>
+    <!-- <script src="../../dist/index.min.js" charset="utf-8" async></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@webtor/embed-sdk-js/dist/index.min.js" charset="utf-8" async></script>
+</head>
+
+<body>
+        <div class="preload">
+        <img class="airplane" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2xrIYSQthEfzznIRsJeygqGnpJ0Bvv_8yq27vrq3suvzELUY22jItYXve8U3uPLFf28PVTkRLq6YVW0bPqRbjJQTCb9DLF54AnjuwMfyiS_4pXcE-YsFOnf2wNbjy8MAEUx6kqbA_2FFMZfzOFW-cB3rQlvxe1Gul2xouFOLFCSFhPDmyNXDWrqjh/s733/SL-121019-25870-24-01.png" alt="airplane">
+           </div> 
+
+    
+    <div id="player"></div>
+    <div id="files"></div> 
+  
+    <script>
+        var el = document.getElementById('player');
+        window.webtor = window.webtor || [];
+        window.webtor.push({
+            id: 'player',
+            // baseUrl: 'https://webtor.io',
+            // baseUrl: 'http://192.168.0.100:4000',
+            imdbId: 'tt21271474',
+            magnet: 'magnet:?xt=urn:btih:1853792693e9bb60ab829dfd5a0c1c466e7e2c95&dn=See.S03E06.1080p.WEB.H264-GLHF%5Brarbg%5D&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.birkenwald.de%3A6969%2Fannounce&tr=http%3A%2F%2Ftracker.bt4g.com%3A2095%2Fannounce&tr=https%3A%2F%2Ftracker.nanoha.org%3A443%2Fannounce&tr=http%3A%2F%2Ftracker.files.fm%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.beeimg.com%3A6969%2Fannounce&tr=http%3A%2F%2Fopen.acgnxtracker.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.monitorit4.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.army%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker2.dler.com%3A80%2Fannounce&tr=udp%3A%2F%2Ffe.dealclub.de%3A6969%2Fannounce&tr=udp%3A%2F%2Fmovies.zsw.ca%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.leech.ie%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.altrosky.nl%3A6969%2Fannounce&tr=udp%3A%2F%2Fapp.icon256.com%3A8000%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fvibe.sleepyinternetfun.xyz%3A1738%2Fannounce&tr=udp%3A%2F%2Ftracker.bitsearch.to%3A1337%2Fannounce&tr=udp%3A%2F%2Fipv6.tracker.monitorit4.me%3A6969%2Fannounce&tr=https%3A%2F%2Ftr.abiir.top%3A443%2Fannounce&tr=udp%3A%2F%2Fzecircle.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Fben.kerbertools.xyz%3A6969%2Fannounce&tr=udp%3A%2F%2Fpsyco.fr%3A6969%2Fannounce&tr=udp%3A%2F%2Faarsen.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ffh2.cmp-gaming.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fhtz3.noho.st%3A6969%2Fannounce&tr=udp%3A%2F%2Fuploads.gamecoast.net%3A6969%2Fannounce&tr=udp%3A%2F%2Fmail.artixlinux.org%3A6969%2Fannounce',
+            title: 'The Lowlands [1080p]  [AFLAMLAB.COM]',
+            poster: 'https://m.media-amazon.com/images/M/MV5BODgyMGU5OTgtNTIzNC00MjU2LTgyM2EtMDJlZmQ1YjI3M2MwXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX1000_.jpg',
+            subtitles: [
+                {
+                    srclang: 'AR',
+                    srclang: 'AR',
+                    label: 'ترجمة عربية',
+                  src: 'https://raw.githubusercontent.com/allina4524/T-AZ/main/80752.S03.E06.srt',
+                     default: true,
+
+                 },
+            ],
+
+                      lang: 'en',
+            i18n: {
+                en: {
+                    common: {
+                        "prepare to play": "إنتظر قليلا",
+                    },
+                    stat: {
+                        "seeding": "إرسال",
+                        "waiting": "جاري التحميل",
+                        "waiting for peers": "تورنت",
+                        "from": "من",
+                    },
+                },
+            },
+
+
+
+
+            width: '100%',
+            height: '100%',
+            features: {
+                autoSubtitles: true,
+                continue:      true,
+                // title:       false,
+                // p2pProgress: false,
+                // subtitles:   false,
+                settings:      false,
+                // fullscreen:  false,
+                // playpause:   false,
+                // currentTime: false,
+                // timeline:    false,
+                // duration:    false,
+                // volume:      false,
+                // chromecast:  false,
+                 chromecast:  true,
+                embed:       false,
+            },
+            on: function(e) {
+                if (e.name == window.webtor.TORRENT_FETCHED) {
+                    console.log('Torrent fetched!', e.data.files);
+
+                    var p = e.player;
+                    var files = document.getElementById('files');
+                    for (const f of e.data.files) {
+                        if (!f.name.endsWith('.mp4')) continue;
+                        var a = document.createElement('a');
+                        a.setAttribute('href', f.path);
+                        a.innerText = f.name;
+                        files.appendChild(a);
+                        a.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            p.open(e.target.getAttribute('href'));
+                            return false;
+                        });
+                    }
+                }
+                if (e.name == window.webtor.TORRENT_ERROR) {
+                    console.log('Torrent error!')
+                }
+                if (e.name == window.webtor.INITED) {
+                    var p = e.player;
+                    document.getElementById('play').addEventListener('click', function(ev) {
+                        p.play();
+                    });
+                    document.getElementById('pause').addEventListener('click', function(ev) {
+                        p.pause();
+                    });
+                    document.getElementById('moveto1min').addEventListener('click', function(ev) {
+                        p.setPosition(60);
+                    });
+                    document.getElementById('movetostart').addEventListener('click', function(ev) {
+                        p.setPosition(0);
+                    });
+                }
+                if (e.name == window.webtor.PLAYER_STATUS) {
+                    document.getElementById('player-status').innerHTML = e.data;
+                }
+                if (e.name == window.webtor.OPEN) {
+                    console.log(e.data);
+                }
+                if (e.name == window.webtor.CURRENT_TIME) {
+                    document.getElementById('current-time').innerHTML = parseInt(e.data);
+                }
+                if (e.name == window.webtor.DURATION) {
+                    document.getElementById('duration').innerHTML = parseInt(e.data);
+                }
+                if (e.name == window.webtor.OPEN_SUBTITLES) {
+                    console.log(e.data);
+                }
+            },
+        });
+    </script>
+    <script>
+window.addEventListener('load', () =>{
+    const preload = document.querySelector ('.preload');
+    preload.classList.add('preload-finish');
+    });
+    </script>
+<script>
+var div = document.getElementById('banner');
+div.style.visibility = "hidden";
+div.style.display = "none";
+</script>
+<script>
+var links = document.links;
+for (var i = 0; i < links.length; i++) {
+     links[i].target = "_blank";
+}
+</script>
+
+    </body>
+    
+
+</html>
